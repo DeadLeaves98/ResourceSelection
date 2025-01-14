@@ -3,11 +3,11 @@
 # Last Editted: 6/28/2024 # DJ is cool
 # Autumn Randall 
 
-library(rgdal); library(dplyr); library(lubridate); library(stringr); library(hablar);library(stringr); library(lubridate); library(tidyr)
-setwd("E:/NOBO R Projects_Github/NOBO_ResourceSelection/Thesis Final")
+library(rgdal); library(dplyr); library(lubridate); library(stringr); library(hablar);library(stringr); library(lubridate); library(tidyr);library(raster)
+setwd("C:/Users/ASRA248/Desktop/ResourceSelection")
 
 # read in the data 
-nobo1 <- read.csv("E:/NOBO R Projects_Github/NOBO_ResourceSelection/Thesis Final/telemetry data/Orton_Bobwhite_TelemetryData_15May2024.csv")
+nobo1 <- read.csv("C:/Users/ASRA248/Desktop/ResourceSelection/Data/Telemetry/Orton_Bobwhite_TelemetryData_15May2024.csv")
 nrow(nobo1) # 54243
 
 # clean this file up by removing the columns we do not need
@@ -185,7 +185,7 @@ nobo1 = within(nobo1, Location.Type[Location.Type == 'Brood'] <- 'Regular')
 #############################
 ############################# MCP FORLOOP()----
 # Read in the orton shapefile 
-OP <- readOGR("E:/NOBO Project Data/Analyses/Breeding Season/Summer 2022/Adult data/Resource Use/shapefiles/OrtonCourses_JustTreatmentSites.shp")
+OP <- readOGR("./shapefiles/OrtonCourses_JustTreatmentSites.shp")
 
 # save Alber's Equal Area Conic projection
 albers <- "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs"
