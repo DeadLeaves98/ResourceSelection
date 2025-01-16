@@ -2,17 +2,16 @@
 # Last Edited: Jan 08 2025
 # Autumn Randall 
 
-setwd("E:/NOBO R Projects_Github/NOBO_ResourceSelection/ResourceSelection_Final_07Jan2025")
 # Read in the "clean" csv for telemetry data from github repository
 library(rgdal); library(raster); library(adehabitatHR); library(rgeos); library(sf); library(dplyr)
 library(lubridate); library(stringr); library(hablar); library(AICcmodavg);  library(lme4); library(lwgeom)
-nobo1 <- read.csv("./cleaned_Data_28June2024_Part1.csv")
+nobo1 <- read.csv("./Data/Telemetry/cleaned_Data_28June2024_Part1.csv")
 nrow(nobo1)
 
 # Generate Randoms ----
 # save Alber's Equal Area Conic projection
 albers <- "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs"
-OP <- readOGR("E:/NOBO Project Data/Analyses/Breeding Season/Summer 2022/Adult data/Resource Use/shapefiles/OrtonCourses_JustTreatmentSites.shp")
+OP <- readOGR("./shapefiles/OrtonCourses_JustTreatmentSites.shp")
 
 # Also fix the names in the shapefile
 OP$course <- ifelse(OP$course == "campcrane2", "campcrane", OP$course) # change "campcrane2" to "campcrane"

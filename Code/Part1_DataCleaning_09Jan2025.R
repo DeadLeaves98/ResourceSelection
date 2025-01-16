@@ -4,10 +4,9 @@
 # Autumn Randall 
 
 library(rgdal); library(dplyr); library(lubridate); library(stringr); library(hablar);library(stringr); library(lubridate); library(tidyr);library(raster)
-setwd("C:/Users/ASRA248/Desktop/ResourceSelection")
 
 # read in the data 
-nobo1 <- read.csv("C:/Users/ASRA248/Desktop/ResourceSelection/Data/Telemetry/Orton_Bobwhite_TelemetryData_15May2024.csv")
+nobo1 <- read.csv("./Data/Telemetry/Orton_Bobwhite_TelemetryData_15May2024.csv")
 nrow(nobo1) # 54243
 
 # clean this file up by removing the columns we do not need
@@ -228,7 +227,7 @@ for(i in 1:length(unique(nobo1$Bird.ID))){
   
   # progress bar
   compl <- round(i/length(unique(nobo1$Bird.ID))*50,0)
-  cat(paste0("\r [", strrep("|", compl),strrep(".", 50-compl),"] ", round(100*i/length(unique(nobo1$Bird.ID)),0), "% complete"))
+  cat(paste0("\r [", strrep("🐣", compl),strrep("🥚", 50-compl),"] ", round(100*i/length(unique(nobo1$Bird.ID)),0), "% complete"))
   #print(paste0("[",strrep("|", compl),strrep(".", 50-compl),"] ", round(100*i/length(unique(nobo1$Bird.ID)),0), "% complete"))
 }
 
